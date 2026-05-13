@@ -189,3 +189,47 @@ Button(
     command=stop_music,
     **btn_style
 ).grid(row=0, column=4, padx=10)
+
+# ---------------- PLAYLIST ---------------- #
+playlist_container = Frame(root, bg="#ffffff")
+playlist_container.pack(
+    fill=BOTH,
+    expand=True,
+    padx=20,
+    pady=25
+)
+
+Label(
+    playlist_container,
+    text="QUEUE",
+    bg="#ffffff",
+    fg="#777",
+    font=("Helvetica", 12, "bold")
+).pack(anchor="w", padx=10, pady=10)
+
+playlist = Listbox(
+    playlist_container,
+    bg="#ffffff",
+    fg="#111",
+    selectbackground="#111",
+    selectforeground="white",
+    font=("Helvetica", 12),
+    bd=0,
+    highlightthickness=0,
+    activestyle="none"
+)
+
+playlist.pack(fill=BOTH, expand=True, padx=10, pady=10)
+
+# ---------------- STATUS BAR ---------------- #
+status = Label(
+    root,
+    textvariable=song_status,
+    bg="#ffffff",
+    fg="#555",
+    font=("Helvetica", 11)
+)
+status.pack(fill=X)
+
+# ---------------- RUN ---------------- #
+root.mainloop()
