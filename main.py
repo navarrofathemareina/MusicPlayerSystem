@@ -63,3 +63,74 @@ def resume_music():
 def stop_music():
     pygame.mixer.music.stop()
     song_status.set("Stopped")
+
+# ---------------- HEADER ---------------- #
+header = Frame(root, bg="#f5f5f5")
+header.pack(fill=X, pady=20)
+
+Label(
+    header,
+    text="Music Player",
+    bg="#f5f5f5",
+    fg="#111",
+    font=("Helvetica", 24, "bold")
+).pack()
+
+# ---------------- ALBUM ART ---------------- #
+album_frame = Frame(root, bg="#f5f5f5")
+album_frame.pack(pady=20)
+
+album_art = Canvas(
+    album_frame,
+    width=260,
+    height=260,
+    bg="#d9d9d9",
+    bd=0,
+    highlightthickness=0
+)
+
+album_art.create_text(
+    130,
+    130,
+    text="ALBUM ART",
+    fill="#666",
+    font=("Helvetica", 18)
+)
+
+album_art.pack()
+
+# ---------------- SONG INFO ---------------- #
+info_frame = Frame(root, bg="#f5f5f5")
+info_frame.pack(pady=20)
+
+Label(
+    info_frame,
+    textvariable=current_song,
+    bg="#f5f5f5",
+    fg="#111",
+    font=("Helvetica", 20, "bold"),
+    wraplength=340
+).pack()
+
+Label(
+    info_frame,
+    text="Artist Name",
+    bg="#f5f5f5",
+    fg="#777",
+    font=("Helvetica", 14)
+).pack(pady=5)
+
+# ---------------- PROGRESS BAR ---------------- #
+progress = Scale(
+    root,
+    from_=0,
+    to=100,
+    orient=HORIZONTAL,
+    length=320,
+    bg="#f5f5f5",
+    fg="#111",
+    troughcolor="#d9d9d9",
+    highlightthickness=0,
+    bd=0
+)
+progress.pack()
