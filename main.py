@@ -134,3 +134,58 @@ progress = Scale(
     bd=0
 )
 progress.pack()
+
+# ---------------- CONTROLS ---------------- #
+controls = Frame(root, bg="#f5f5f5")
+controls.pack(pady=30)
+
+btn_style = {
+    "bg": "#ffffff",
+    "fg": "#111",
+    "font": ("Helvetica", 18),
+    "bd": 0,
+    "activebackground": "#e5e5e5",
+    "cursor": "hand2",
+    "width": 3,
+    "height": 1
+}
+
+# LOAD
+Button(
+    controls,
+    text="📁",
+    command=load_music,
+    **btn_style
+).grid(row=0, column=0, padx=10)
+
+# PLAY
+Button(
+    controls,
+    text="▶",
+    command=play_music,
+    **btn_style
+).grid(row=0, column=1, padx=10)
+
+# PAUSE
+Button(
+    controls,
+    text="⏸",
+    command=pause_music,
+    **btn_style
+).grid(row=0, column=2, padx=10)
+
+# RESUME
+Button(
+    controls,
+    text="⏵",
+    command=resume_music,
+    **btn_style
+).grid(row=0, column=3, padx=10)
+
+# STOP
+Button(
+    controls,
+    text="■",
+    command=stop_music,
+    **btn_style
+).grid(row=0, column=4, padx=10)
