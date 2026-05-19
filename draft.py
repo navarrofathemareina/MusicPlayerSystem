@@ -7,7 +7,7 @@ import os
 pygame.mixer.init()
 
 root = Tk()
-root.title("Fenk Music Player")
+root.title("Minimal Music Player")
 root.geometry("430x820")
 root.config(bg="#ffc5c5")
 root.resizable(False, False)
@@ -59,9 +59,7 @@ def resume_music():
     pygame.mixer.music.unpause()
     song_status.set("Playing")
 
-def stop_music():
-    pygame.mixer.music.stop()
-    song_status.set("Stopped")
+
 
 
 # ---------------- HEADER ---------------- #
@@ -140,7 +138,7 @@ controls = Frame(root, bg="#ffc5c5")
 controls.pack(pady=30)
 
 btn_style = {
-    "bg": "#ffc5c5",
+    "bg": "#ffffff",
     "fg": "#111",
     "font": ("Helvetica", 18),
     "bd": 0,
@@ -182,13 +180,7 @@ Button(
     **btn_style
 ).grid(row=0, column=3, padx=10)
 
-# STOP
-Button(
-    controls,
-    text="■",
-    command=stop_music,
-    **btn_style
-).grid(row=0, column=4, padx=10)
+
 
 # ---------------- PLAYLIST ---------------- #
 playlist_container = Frame(root, bg="#ffffff")
